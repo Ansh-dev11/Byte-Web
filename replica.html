@@ -1,0 +1,356 @@
+<!-- Healthcare Website Homepage -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Plus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #e3e6ea 0%, #f7fafc 100%);
+            color: #1a202c;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, #b0bec5 0%, #1976d2 100%);
+            padding: 0 20px;
+            height: 54px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .navbar li:hover {
+            color: #1976d2;
+        }
+        .hero {
+            background: linear-gradient(120deg, #b0bec5 60%, #1976d2 100%);
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px 60px 20px;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 0.2s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            text-shadow: 0 2px 12px rgba(25, 118, 210, 0.18);
+        }
+        .hero p {
+            font-size: 24px;
+            margin: 0 0 24px 0;
+            text-shadow: 0 2px 12px rgba(25, 118, 210, 0.12);
+        }
+        .hero a {
+            color: #1976d2;
+            background: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 10px 28px;
+            border-radius: 24px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+        }
+        .hero a:hover {
+            background: #1976d2;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
+            transform: translateY(-2px) scale(1.07);
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin: 60px 0;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 0.8s forwards;
+        }
+        .service {
+            background: linear-gradient(120deg, #f7fafc 60%, #b0bec5 100%);
+            border-radius: 18px;
+            width: 320px;
+            text-align: center;
+            padding: 32px 16px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service:hover {
+            box-shadow: 0 8px 32px rgba(25, 118, 210, 0.12), 0 2px 8px rgba(0,0,0,0.04);
+            transform: translateY(-8px) scale(1.04);
+        }
+        .service img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 18px;
+        }
+        .service h2 {
+            font-size: 22px;
+            margin: 0 0 8px 0;
+        }
+        .service p {
+            font-size: 15px;
+            color: #1976d2;
+            margin: 0 0 16px 0;
+        }
+        .contact-section {
+            background: linear-gradient(120deg, #e3e6ea 60%, #b0bec5 100%);
+            padding: 40px 0;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 1.2s forwards;
+        }
+        .contact-section h2 {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+        .contact-form {
+            display: inline-block;
+            background: #fff;
+            padding: 24px 32px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 16px 0;
+            border: 1px solid #b0bec5;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #f7fafc;
+        }
+        .contact-form button {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 24px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .contact-form button:hover {
+            background: #1565c0;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.18);
+        }
+        .footer {
+            background: linear-gradient(90deg, #b0bec5 0%, #1976d2 100%);
+            color: #fff;
+            text-align: center;
+            padding: 32px 10px 16px 10px;
+            font-size: 14px;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 1.4s forwards;
+        }
+        .slide-auth {
+            max-height: 0;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(25,118,210,0.10);
+            border-radius: 0 0 18px 18px;
+            transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+        .slide-auth.open {
+            max-height: 400px;
+        }
+        .slide-auth form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 24px 32px 18px 32px;
+        }
+        .slide-auth input {
+            padding: 10px;
+            border: 1px solid #b0bec5;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #f7fafc;
+        }
+        .slide-auth button {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 24px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .slide-auth button:hover {
+            background: #1565c0;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.18);
+        }
+        .slide-auth .toggle-link {
+            color: #1976d2;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 8px;
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>HealthCare Plus</li>
+            <li>Home</li>
+            <li>Services</li>
+            <li>Doctors</li>
+            <li>Contact</li>
+            <li id="authNav">Sign In / Sign Up</li>
+        </ul>
+    </nav>
+    <div class="slide-auth" id="slideAuth">
+        <form id="authForm">
+            <h3 id="authTitle" style="color:#1976d2;text-align:center;margin-bottom:8px;">Sign In</h3>
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Sign In</button>
+            <span class="toggle-link" id="toggleLink">Don't have an account? Sign Up</span>
+        </form>
+    </div>
+    <section class="hero">
+        <h1>Your Health, Our Priority</h1>
+        <p>Comprehensive healthcare solutions for you and your family.</p>
+        <a href="#services">Our Services</a>
+        <a href="#contact">Contact Us</a>
+    </section>
+    <section class="services" id="services">
+        <div class="service">
+            <img src="https://img.icons8.com/ios-filled/100/1976d2/stethoscope.png" alt="General Consultation">
+            <h2>General Consultation</h2>
+            <p>Expert advice and diagnosis for all your health concerns.</p>
+        </div>
+        <div class="service">
+            <img src="https://img.icons8.com/ios-filled/100/1976d2/heart-with-pulse.png" alt="Cardiology">
+            <h2>Cardiology</h2>
+            <p>Advanced heart care and diagnostics by specialists.</p>
+        </div>
+        <div class="service">
+            <img src="https://img.icons8.com/ios-filled/100/1976d2/syringe.png" alt="Vaccination">
+            <h2>Vaccination</h2>
+            <p>Immunization services for children and adults.</p>
+        </div>
+        <div class="service">
+            <img src="https://img.icons8.com/ios-filled/100/1976d2/ambulance.png" alt="Emergency Care">
+            <h2>Emergency Care</h2>
+            <p>24/7 emergency services for urgent medical needs.</p>
+        </div>
+        <div class="service">
+            <img src="https://img.icons8.com/ios-filled/100/1976d2/robot-2.png" alt="AI Health Chat">
+            <h2>AI Health Chat</h2>
+            <p>Chat instantly with our AI assistant for health advice and support.</p>
+            <a href="ai-chat.html" style="background:#c0c0c0;color:#1976d2;display:inline-block;border-radius:24px;padding:10px 28px;font-size:16px;text-decoration:none;transition:background 0.2s, color 0.2s, box-shadow 0.2s;box-shadow:0 2px 8px rgba(25,118,210,0.08);margin-top:10px;">Try AI Chat</a>
+        </div>
+    </section>
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+            <div id="formMsg" style="margin-top:10px;font-size:15px;"></div>
+        </form>
+    </section>
+    <footer class="footer">
+        <p>Copyright © 2025 HealthCare Plus. All rights reserved.</p>
+        <p>This is a demo healthcare website.</p>
+    </footer>
+    <script>
+        // Contact form AJAX
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const data = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+            const msgDiv = document.getElementById('formMsg');
+            msgDiv.textContent = 'Sending...';
+            try {
+                const res = await fetch('http://localhost:3000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    msgDiv.textContent = 'Thank you for contacting us!';
+                    form.reset();
+                } else {
+                    msgDiv.textContent = 'There was an error. Please try again.';
+                }
+            } catch {
+                msgDiv.textContent = 'Could not connect to server.';
+            }
+        });
+        // Slide-down auth logic
+        const authNav = document.getElementById('authNav');
+        const slideAuth = document.getElementById('slideAuth');
+        const authForm = document.getElementById('authForm');
+        const toggleLink = document.getElementById('toggleLink');
+        const authTitle = document.getElementById('authTitle');
+        let isSignIn = true;
+        authNav.onclick = function() {
+            slideAuth.classList.toggle('open');
+        };
+        toggleLink.onclick = function() {
+            isSignIn = !isSignIn;
+            authTitle.textContent = isSignIn ? 'Sign In' : 'Sign Up';
+            authForm.querySelector('button').textContent = isSignIn ? 'Sign In' : 'Sign Up';
+            if (!isSignIn && !document.getElementById('name')) {
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.id = 'name';
+                nameInput.placeholder = 'Name';
+                nameInput.required = true;
+                // Insert name input just after the title
+                authForm.insertBefore(nameInput, authTitle.nextSibling);
+            } else if (isSignIn && document.getElementById('name')) {
+                authForm.removeChild(document.getElementById('name'));
+            }
+            toggleLink.textContent = isSignIn ? "Don't have an account? Sign Up" : "Already have an account? Sign In";
+        };
+        authForm.onsubmit = function(e) {
+            e.preventDefault();
+            // Placeholder: Add AJAX to backend here
+            alert((isSignIn ? 'Sign In' : 'Sign Up') + ' form submitted!');
+        };
+    </script>
+</body>
+</html>

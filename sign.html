@@ -1,0 +1,139 @@
+<!-- Healthcare Website Sign In/Sign Up Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up - HealthCare Plus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #e3e6ea 0%, #f7fafc 100%);
+            color: #1a202c;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, #b0bec5 0%, #1976d2 100%);
+            padding: 0 20px;
+            height: 54px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .navbar li:hover {
+            color: #1976d2;
+        }
+        .auth-container {
+            max-width: 400px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(25, 118, 210, 0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .auth-container h2 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 24px;
+        }
+        .auth-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .auth-container input {
+            margin-bottom: 16px;
+            padding: 10px;
+            border: 1px solid #b0bec5;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #f7fafc;
+        }
+        .auth-container button {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 24px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .auth-container button:hover {
+            background: #1565c0;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.18);
+        }
+        .toggle-link {
+            color: #1976d2;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 12px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li onclick="window.location.href='replica.html'">HealthCare Plus</li>
+            <li onclick="window.location.href='replica.html'">Home</li>
+            <li>Sign In / Sign Up</li>
+        </ul>
+    </nav>
+    <div class="auth-container">
+        <h2 id="formTitle">Sign In</h2>
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Sign In</button>
+        </form>
+        <span class="toggle-link" id="toggleLink">Don't have an account? Sign Up</span>
+    </div>
+    <script>
+        const form = document.getElementById('authForm');
+        const toggleLink = document.getElementById('toggleLink');
+        const formTitle = document.getElementById('formTitle');
+        let isSignIn = true;
+        toggleLink.onclick = function() {
+            isSignIn = !isSignIn;
+            formTitle.textContent = isSignIn ? 'Sign In' : 'Sign Up';
+            form.querySelector('button').textContent = isSignIn ? 'Sign In' : 'Sign Up';
+            if (!isSignIn && !document.getElementById('name')) {
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.id = 'name';
+                nameInput.placeholder = 'Name';
+                nameInput.required = true;
+                form.insertBefore(nameInput, form.firstChild);
+            } else if (isSignIn && document.getElementById('name')) {
+                form.removeChild(document.getElementById('name'));
+            }
+            toggleLink.textContent = isSignIn ? "Don't have an account? Sign Up" : "Already have an account? Sign In";
+        };
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            // Placeholder: Add AJAX to backend here
+            alert((isSignIn ? 'Sign In' : 'Sign Up') + ' form submitted!');
+        };
+    </script>
+</body>
+</html>
